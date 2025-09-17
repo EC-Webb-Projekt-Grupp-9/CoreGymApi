@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreGymApi", "CoreGymApi.csproj", "{C6E38DA1-98E4-46D6-84D3-851A0074CF7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testMVC", "..\testMVC\testMVC.csproj", "{FA30BADA-5081-40EE-B090-069B335D2271}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6E38DA1-98E4-46D6-84D3-851A0074CF7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6E38DA1-98E4-46D6-84D3-851A0074CF7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6E38DA1-98E4-46D6-84D3-851A0074CF7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6E38DA1-98E4-46D6-84D3-851A0074CF7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA30BADA-5081-40EE-B090-069B335D2271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA30BADA-5081-40EE-B090-069B335D2271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA30BADA-5081-40EE-B090-069B335D2271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA30BADA-5081-40EE-B090-069B335D2271}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3DDAAA3B-96B6-4D1D-BE0E-A3BE7C032179}
+	EndGlobalSection
+EndGlobal
