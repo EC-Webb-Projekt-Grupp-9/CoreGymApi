@@ -1,91 +1,24 @@
+using CoreGymApi;
 using CoreGymApi.Entities;
+using CoreGymApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
+builder.Services.AddCors();
+builder.Services.AddScoped<ISessionService, SessionService>();
 
 var app = builder.Build();
 
 app.MapOpenApi();
 app.UseCors(c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-
-
 app.UseHttpsRedirection();
 
-var sessions = new List<Session>
-{
-    new Session
-    {
-        Id = Guid.NewGuid(),
-        StartTime = DateTime.Now,
-        Duration = 3,
-        Title = "Spinning",
-        Description = "",
-        Trainer = "Ove Persson",
-        Location = "Göteborg",
-        Spots = 20
-    },
-    new Session
-    {
-        Id = Guid.NewGuid(),
-        StartTime = DateTime.Now,
-        Duration = 2,
-        Title = "Aerobics",
-        Description = "",
-        Trainer = "Kent olsson",
-        Location = "Halmstad",
-        Spots = 20
-    },
-    new Session
-    {
-        Id = Guid.NewGuid(),
-        StartTime = DateTime.Now,
-        Duration = 3,
-        Title = "Cross Fit",
-        Description = "",
-        Trainer = "Kalle Stenhård",
-        Location = "Örebro",
-        Spots = 20
-    },
-     new Session
-    {
-        Id = Guid.NewGuid(),
-        StartTime = DateTime.Now.AddDays(1),
-        Duration = 3,
-        Title = "Spinning",
-        Description = "",
-        Trainer = "Ove Persson",
-        Location = "Göteborg",
-        Spots = 20
-    },
-    new Session
-    {
-        Id = Guid.NewGuid(),
-        StartTime = DateTime.Now.AddDays(1),
-        Duration = 2,
-        Title = "Aerobics",
-        Description = "",
-        Trainer = "Kent olsson",
-        Location = "Halmstad",
-        Spots = 20
-    },
-    new Session
-    {
-        Id = Guid.NewGuid(),
-        StartTime = DateTime.Now.AddDays(1),
-        Duration = 3,
-        Title = "Cross Fit",
-        Description = "",
-        Trainer = "Kalle Stenhård",
-        Location = "Örebro",
-        Spots = 20
-    }
-};
 
 
-app.MapGet("/sessions", () =>
+app.MapGet("/sessions", (ISessionService service) =>
 {
-    return sessions;
+    return service.GetSessions();
 })
 .WithName("GetTrainingSessions");
 
