@@ -7,6 +7,7 @@ builder.Services.AddOpenApi();
 var app = builder.Build();
 
 app.MapOpenApi();
+app.UseCors(c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
 
 app.UseHttpsRedirection();
