@@ -17,7 +17,7 @@ public class SessionService : ISessionService
             new { Hour = 18, Minute = 30, Title = "CrossFit", Trainer = "Marcus Berg", Location = "Malmö", Duration = 2 }
         };
 
-        for (int day = 0; day < 14; day++)
+        for (int day = 0; day < 30; day++)
         {
             var currentDate = startDate.AddDays(day);
 
