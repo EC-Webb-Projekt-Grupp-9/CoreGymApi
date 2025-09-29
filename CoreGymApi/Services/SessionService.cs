@@ -1,12 +1,15 @@
-﻿using CoreGymApi.Entities;
+﻿using CoreGymApi.Dtos;
+using CoreGymApi.Entities;
 
 namespace CoreGymApi.Services;
 
 public class SessionService : ISessionService
 {
+    private readonly List<Session> sessions;
+
     public List<Session> GetSessions()
     {
-        var sessions = new List<Session>();
+        
         var startDate = new DateTime(2025, 9, 22);
 
         var dailySchedule = new[]
@@ -40,5 +43,23 @@ public class SessionService : ISessionService
 
 
         return sessions;
+    }
+
+    public Session CreateSession(AddSessionDto formData) 
+    { 
+        var newSession = new Session
+        {
+            Id = Guid.NewGuid(),
+            StartTime = formData.StartTime,
+            Duration = formData.Duration,
+            Title = formData.Title,
+            Description = formData.Description,
+            Trainer = formData.Trainer,
+            Location = formData.Location,
+            Spots = formData.Spots
+        };
+
+        sessions.Add(newSession);
+        return newSession;
     }
 }
